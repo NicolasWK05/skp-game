@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://j3ay421fdmew"]
+[gd_scene load_steps=15 format=3 uid="uid://j3ay421fdmew"]
 
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_2n363"]
 [ext_resource type="PackedScene" uid="uid://cpqhux42y6abv" path="res://Scenes/player.tscn" id="1_pmxib"]
 [ext_resource type="Texture2D" uid="uid://4uokceu8j1dh" path="res://Assets/sprites/world_tileset.png" id="2_yp25m"]
 [ext_resource type="PackedScene" uid="uid://bebbibh1fjgup" path="res://Scenes/Platform.tscn" id="3_jrmyj"]
 [ext_resource type="PackedScene" uid="uid://bcrx0d1wd6kuc" path="res://Scenes/coin.tscn" id="4_srohp"]
 [ext_resource type="PackedScene" uid="uid://bv7ulynkexg21" path="res://Scenes/killzone.tscn" id="5_qt7r4"]
 [ext_resource type="PackedScene" uid="uid://dr45o1m4eycde" path="res://Scenes/g_slime.tscn" id="6_cga6x"]
+[ext_resource type="FontFile" uid="uid://b1bhi37j88m54" path="res://Assets/fonts/PixelOperator8.ttf" id="7_elonb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ga7xg"]
 texture = ExtResource("2_yp25m")
@@ -175,6 +177,21 @@ sources/0 = SubResource("TileSetAtlasSource_ga7xg")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_v70a8"]
 
+[sub_resource type="Animation" id="Animation_vebwn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(273, 36)]
+}
+
 [sub_resource type="Animation" id="Animation_u7uy4"]
 resource_name = "move"
 length = 3.0
@@ -192,21 +209,6 @@ tracks/0/keys = {
 "values": [Vector2(273, 36), Vector2(413, 36)]
 }
 
-[sub_resource type="Animation" id="Animation_vebwn"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(273, 36)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kw2y3"]
 _data = {
 "RESET": SubResource("Animation_vebwn"),
@@ -214,6 +216,10 @@ _data = {
 }
 
 [node name="Game" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_2n363")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_lp63c")
@@ -233,6 +239,19 @@ scale = Vector2(22.069, -9.48412)
 zoom = Vector2(4, 4)
 limit_bottom = 160
 limit_smoothed = true
+
+[node name="ScoreLabel" type="Label" parent="Player/Camera2D"]
+z_index = 1
+offset_left = 6.66092
+offset_top = -8.43519
+offset_right = 159.661
+offset_bottom = 14.5648
+scale = Vector2(-0.0357695, 0.100524)
+theme_override_colors/font_color = Color(0.971793, 0.9479, 0.298094, 1)
+theme_override_fonts/font = ExtResource("7_elonb")
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Killzone" parent="." instance=ExtResource("5_qt7r4")]
 position = Vector2(0, 127)
@@ -257,6 +276,18 @@ position = Vector2(135, 22)
 [node name="Coin5" parent="Coins" instance=ExtResource("4_srohp")]
 position = Vector2(343, 7)
 
+[node name="Coin6" parent="Coins" instance=ExtResource("4_srohp")]
+position = Vector2(-24, 25)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("4_srohp")]
+position = Vector2(663, -6)
+
+[node name="Coin8" parent="Coins" instance=ExtResource("4_srohp")]
+position = Vector2(663, -19)
+
+[node name="Coin9" parent="Coins" instance=ExtResource("4_srohp")]
+position = Vector2(-119, 25)
+
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Platform" parent="Platforms" instance=ExtResource("3_jrmyj")]
@@ -278,3 +309,16 @@ position = Vector2(-104, 21)
 
 [node name="G_Slime2" parent="Enemys" instance=ExtResource("6_cga6x")]
 position = Vector2(633, -11)
+
+[node name="Lavels" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="Lavels"]
+offset_left = -48.0
+offset_top = -25.0
+offset_right = 140.0
+offset_bottom = 24.0
+scale = Vector2(1.88, 1.62116)
+theme_override_fonts/font = ExtResource("7_elonb")
+theme_override_font_sizes/font_size = 8
+text = "Space to jump 
+A and D to move"
