@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://j3ay421fdmew"]
+[gd_scene load_steps=16 format=3 uid="uid://j3ay421fdmew"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_2n363"]
 [ext_resource type="PackedScene" uid="uid://cpqhux42y6abv" path="res://Scenes/player.tscn" id="1_pmxib"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bv7ulynkexg21" path="res://Scenes/killzone.tscn" id="5_qt7r4"]
 [ext_resource type="PackedScene" uid="uid://dr45o1m4eycde" path="res://Scenes/g_slime.tscn" id="6_cga6x"]
 [ext_resource type="FontFile" uid="uid://b1bhi37j88m54" path="res://Assets/fonts/PixelOperator8.ttf" id="7_elonb"]
+[ext_resource type="PackedScene" uid="uid://cuh60a3cx4lne" path="res://Scenes/player2.tscn" id="9_lld8w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ga7xg"]
 texture = ExtResource("2_yp25m")
@@ -252,6 +253,9 @@ theme_override_fonts/font = ExtResource("7_elonb")
 theme_override_font_sizes/font_size = 8
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="Player2" parent="." instance=ExtResource("9_lld8w")]
+position = Vector2(-3, 26)
 
 [node name="Killzone" parent="." instance=ExtResource("5_qt7r4")]
 position = Vector2(0, 127)
