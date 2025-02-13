@@ -1,16 +1,22 @@
 extends Area2D
 
-
 @onready var timer: Timer = $Timer
 
 func _on_body_entered(body: Node2D) -> void:
-	print("You died!")
-	Engine.time_scale = 0.5
-	body.get_node("CollisionShape2D").queue_free()
-	timer.start()
+	
+	if body.name == "Player1":
+		GameManager.died1()  # Direct access to global GameManager
+		print("Player 1 died!") # Debug
+	elif body.name == "Player2":
+		GameManager.died2()
+		print("Player 2 died!") # Debug
+		
+	body.get_node("CollisionShape2D").set_deferred("disabled", true)  # Deactivate collisions
+	body.hide() # Hide the player
+	body.set_process(false)  # Stop processing inputs
+	body.set_physics_process(false)  # Stop physics interactions
 	
 
 
 func _on_timer_timeout() -> void:
-	Engine.time_scale = 1
 	get_tree().reload_current_scene()

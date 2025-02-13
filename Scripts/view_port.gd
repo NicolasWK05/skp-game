@@ -7,16 +7,15 @@ extends Node
 @onready var players := {
 	"1": {
 		viewport = $HBoxContainer2/SubViewportContainer/SubViewport,
-		camera = $HBoxContainer2/SubViewportContainer/SubViewport/Camera2D,
-		player = $HBoxContainer2/SubViewportContainer/SubViewport/Game/Player
+		camera = $HBoxContainer2/SubViewportContainer/SubViewport/Player1Camera,
+		player = $HBoxContainer2/SubViewportContainer/SubViewport/Game/Player1
 	},
 	"2": {
 		viewport = $HBoxContainer2/SubViewportContainer2/SubViewport,
-		camera = $HBoxContainer2/SubViewportContainer2/SubViewport/Camera2D,
+		camera = $HBoxContainer2/SubViewportContainer2/SubViewport/Player2Camera,
 		player = $HBoxContainer2/SubViewportContainer/SubViewport/Game/Player2
 	}
 }
-
 
 func _ready() -> void:
 	# The world_2d object of the viewport contains information about what to

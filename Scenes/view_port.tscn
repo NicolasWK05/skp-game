@@ -7,9 +7,9 @@
 script = ExtResource("1_uyicm")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="."]
-offset_left = -3.0
+offset_left = -1.0
 offset_top = 3.0
-offset_right = 1925.0
+offset_right = 1927.0
 offset_bottom = 1073.0
 theme_override_constants/separation = 3
 alignment = 1
@@ -29,7 +29,7 @@ render_target_update_mode = 4
 
 [node name="Game" parent="HBoxContainer2/SubViewportContainer/SubViewport" instance=ExtResource("1_458hg")]
 
-[node name="Camera2D" type="Camera2D" parent="HBoxContainer2/SubViewportContainer/SubViewport"]
+[node name="Player1Camera" type="Camera2D" parent="HBoxContainer2/SubViewportContainer/SubViewport"]
 texture_filter = 1
 position = Vector2(228, 456)
 zoom = Vector2(6, 6)
@@ -46,7 +46,7 @@ canvas_item_default_texture_filter = 0
 size = Vector2i(963, 1070)
 render_target_update_mode = 4
 
-[node name="Camera2D" type="Camera2D" parent="HBoxContainer2/SubViewportContainer2/SubViewport"]
+[node name="Player2Camera" type="Camera2D" parent="HBoxContainer2/SubViewportContainer2/SubViewport"]
 texture_filter = 1
 position = Vector2(259, 458)
 zoom = Vector2(6, 6)
