@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxkuqq1ajq7c0"]
+
+[ext_resource type="PackedScene" uid="uid://j3ay421fdmew" path="res://Scenes/Game.tscn" id="1_k1s36"]
+[ext_resource type="Script" path="res://Scenes/view_port_scene.gd" id="1_p567m"]
+[ext_resource type="PackedScene" uid="uid://cpqhux42y6abv" path="res://Scenes/player.tscn" id="3_fotop"]
+[ext_resource type="PackedScene" uid="uid://cuh60a3cx4lne" path="res://Scenes/player2.tscn" id="5_jh4os"]
+
+[node name="ViewPortScene" type="Node2D"]
+script = ExtResource("1_p567m")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = -742.445
+offset_top = -617.789
+offset_right = 1181.55
+offset_bottom = 462.211
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer"]
+handle_input_locally = false
+use_hdr_2d = true
+size = Vector2i(960, 1080)
+render_target_update_mode = 4
+
+[node name="Player" parent="HBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("3_fotop")]
+
+[node name="Game" parent="HBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_k1s36")]
+
+[node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer/SubViewport"]
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer2"]
+handle_input_locally = false
+use_hdr_2d = true
+size = Vector2i(960, 1080)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer2/SubViewport"]
+
+[node name="Player2" parent="HBoxContainer/SubViewportContainer2/SubViewport" instance=ExtResource("5_jh4os")]
