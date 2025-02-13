@@ -6,14 +6,14 @@ extends Node
 # This data structure helps us to do that conveniently. See the _ready() function below.
 @onready var players := {
 	"1": {
-		viewport = $HBoxContainer/SubViewportContainer/SubViewport,
-		camera = $HBoxContainer/SubViewportContainer/SubViewport/Camera2D,
-		player = $HBoxContainer/SubViewportContainer/SubViewport/Game/Player
+		viewport = $HBoxContainer2/SubViewportContainer/SubViewport,
+		camera = $HBoxContainer2/SubViewportContainer/SubViewport/Camera2D,
+		player = $HBoxContainer2/SubViewportContainer/SubViewport/Game/Player
 	},
 	"2": {
-		viewport = $HBoxContainer/SubViewportContainer2/SubViewport,
-		camera = $HBoxContainer/SubViewportContainer2/SubViewport/Camera2D,
-		player = $HBoxContainer/SubViewportContainer/SubViewport/Game/Player2
+		viewport = $HBoxContainer2/SubViewportContainer2/SubViewport,
+		camera = $HBoxContainer2/SubViewportContainer2/SubViewport/Camera2D,
+		player = $HBoxContainer2/SubViewportContainer/SubViewport/Game/Player2
 	}
 }
 

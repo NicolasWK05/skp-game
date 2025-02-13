@@ -1,53 +1,53 @@
 [gd_scene load_steps=3 format=3 uid="uid://ckd6daubt612d"]
 
 [ext_resource type="PackedScene" uid="uid://j3ay421fdmew" path="res://Scenes/Game.tscn" id="1_458hg"]
-[ext_resource type="Script" path="res://Scenes/view_port.gd" id="1_uyicm"]
+[ext_resource type="Script" path="res://Scripts/view_port.gd" id="1_uyicm"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_uyicm")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_right = 1912.0
-offset_bottom = 1075.0
-theme_override_constants/separation = 0
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+offset_left = -3.0
+offset_top = 3.0
+offset_right = 1925.0
+offset_bottom = 1073.0
+theme_override_constants/separation = 3
+alignment = 1
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer2/SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
-use_hdr_2d = true
-size = Vector2i(956, 1075)
+canvas_item_default_texture_filter = 0
+canvas_item_default_texture_repeat = 1
+size = Vector2i(962, 1070)
 render_target_update_mode = 4
 
-[node name="Game" parent="HBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_458hg")]
+[node name="Game" parent="HBoxContainer2/SubViewportContainer/SubViewport" instance=ExtResource("1_458hg")]
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="HBoxContainer/SubViewportContainer/SubViewport/Game/Player" index="2"]
-remote_path = NodePath("../../../Camera2D")
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="HBoxContainer/SubViewportContainer/SubViewport/Game/Player2" index="2"]
-remote_path = NodePath("../../../../../SubViewportContainer2/SubViewport/Camera2D")
-
-[node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer/SubViewport"]
+[node name="Camera2D" type="Camera2D" parent="HBoxContainer2/SubViewportContainer/SubViewport"]
+texture_filter = 1
 position = Vector2(228, 456)
 zoom = Vector2(6, 6)
 
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer"]
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer2"]
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer2/SubViewportContainer2"]
 handle_input_locally = false
 use_hdr_2d = true
-size = Vector2i(956, 1075)
+canvas_item_default_texture_filter = 0
+size = Vector2i(963, 1070)
 render_target_update_mode = 4
 
-[node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer2/SubViewport"]
+[node name="Camera2D" type="Camera2D" parent="HBoxContainer2/SubViewportContainer2/SubViewport"]
+texture_filter = 1
 position = Vector2(259, 458)
 zoom = Vector2(6, 6)
-
-[editable path="HBoxContainer/SubViewportContainer/SubViewport/Game"]
+process_callback = 0
