@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://j3ay421fdmew"]
+[gd_scene load_steps=28 format=3 uid="uid://j3ay421fdmew"]
 
 [ext_resource type="PackedScene" uid="uid://cpqhux42y6abv" path="res://Scenes/player1.tscn" id="1_pmxib"]
 [ext_resource type="Texture2D" uid="uid://4uokceu8j1dh" path="res://Assets/sprites/world_tileset.png" id="2_yp25m"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c5v8lbulauv1r" path="res://Scenes/platform_brown.tscn" id="8_v2udr"]
 [ext_resource type="Script" path="res://Scripts/player1.gd" id="9_1w0e2"]
 [ext_resource type="PackedScene" uid="uid://7jiqups0xde4" path="res://Scenes/player2.tscn" id="10_w430b"]
+[ext_resource type="PackedScene" uid="uid://ck5d5u3y7tncb" path="res://Scenes/end_point.tscn" id="11_nwk0l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ga7xg"]
 texture = ExtResource("2_yp25m")
@@ -875,11 +876,11 @@ position = Vector2(11943, -344)
 
 [node name="Coin63" parent="Coins2" instance=ExtResource("4_srohp")]
 visible = false
-position = Vector2(1287, -312)
+position = Vector2(11287, -312)
 
 [node name="Coin64" parent="Coins2" instance=ExtResource("4_srohp")]
 visible = false
-position = Vector2(1320, -312)
+position = Vector2(11320, -312)
 
 [node name="Platforms" type="Node" parent="."]
 
@@ -1117,3 +1118,9 @@ script = ExtResource("9_1w0e2")
 
 [node name="Player2" parent="." instance=ExtResource("10_w430b")]
 position = Vector2(9963, 14)
+
+[node name="EndPoint" parent="." instance=ExtResource("11_nwk0l")]
+position = Vector2(11976, -346)
+
+[node name="EndPoint2" parent="." instance=ExtResource("11_nwk0l")]
+position = Vector2(1975, -346)

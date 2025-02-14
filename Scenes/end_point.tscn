@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck5d5u3y7tncb"]
+
+[ext_resource type="Script" path="res://Scripts/end_point.gd" id="1_6byct"]
+[ext_resource type="Texture2D" uid="uid://c6j7hu5ekm1v2" path="res://Assets/sprites/fruit.png" id="1_m5iri"]
+[ext_resource type="PackedScene" uid="uid://bv7ulynkexg21" path="res://Scenes/killzone.tscn" id="3_l0p67"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0p4v"]
+size = Vector2(12, 16)
+
+[node name="EndPoint" type="Area2D"]
+script = ExtResource("1_6byct")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_m5iri")
+region_enabled = true
+region_rect = Rect2(34, 33, 11, 16)
+
+[node name="Killzone" parent="." instance=ExtResource("3_l0p67")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("RectangleShape2D_e0p4v")
+one_way_collision = true

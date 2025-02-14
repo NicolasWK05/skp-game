@@ -24,7 +24,7 @@ transparent_bg = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
 canvas_item_default_texture_repeat = 1
-size = Vector2i(962, 1070)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="Game" parent="HBoxContainer2/SubViewportContainer/SubViewport" instance=ExtResource("1_458hg")]
@@ -43,7 +43,7 @@ stretch = true
 handle_input_locally = false
 use_hdr_2d = true
 canvas_item_default_texture_filter = 0
-size = Vector2i(963, 1070)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="Player2Camera" type="Camera2D" parent="HBoxContainer2/SubViewportContainer2/SubViewport"]
